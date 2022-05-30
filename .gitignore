@@ -1,0 +1,5 @@
+meekoquadra.spec 
+build 
+dist 
+**/__pycache__
+**/__init__.py
