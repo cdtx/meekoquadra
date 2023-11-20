@@ -46,10 +46,15 @@ class MeekoFile:
 
         return self.worksheet(worksheet_name, MeekoPaiements)
 
-class MeekoFactures(dict):
+
+class MeekoDict(dict):
+    def __repr__(self):
+        return ' | '.join([f'{k}={v}' for k, v in self.items()])
+
+class MeekoFactures(MeekoDict):
     pass
 
-class MeekoPaiements(dict):
+class MeekoPaiements(MeekoDict):
     pass
 
 
