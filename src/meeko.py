@@ -1,4 +1,4 @@
-# -*- coding: Latin-1 -*-
+# -*- coding: utf-8 -*-
 from openpyxl import load_workbook
 
 class MeekoFile:
@@ -35,10 +35,16 @@ class MeekoFile:
 
 
     def factures(self):
-        return self.worksheet('Factures', MeekoFactures)
+        # Worksheet name can be 'Paiements' or 'Règlements'
+        worksheet_name = [x for x in ('Factures',) if x in self.workbook].pop()
+
+        return self.worksheet(worksheet_name, MeekoFactures)
 
     def paiements(self):
-        return self.worksheet('Paiements', MeekoPaiements)
+        # Worksheet name can be 'Paiements' or 'Règlements'
+        worksheet_name = [x for x in ('Paiements', 'Règlements') if x in self.workbook].pop()
+
+        return self.worksheet(worksheet_name, MeekoPaiements)
 
 class MeekoFactures(dict):
     pass
