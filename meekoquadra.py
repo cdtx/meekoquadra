@@ -87,7 +87,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='Convert meeko *.xlsx to quadra *.txt')
 
-    parser.add_argument('--in', type=str, required=True, dest='in_file_name', help='Fichier meeko (*.xlxs)')
+    parser.add_argument('in_file_name', type=str, help='Fichier meeko (*.xlxs)')
     parser.add_argument('--out', type=str, required=False, dest='out_file_name', help='Fichier quadra (*.txt), optionnel')
 
     args = parser.parse_args()
