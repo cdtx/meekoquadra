@@ -1,4 +1,5 @@
 import sys, os
+from copy import deepcopy
 from collections import OrderedDict
 
 from quadra_defs import entry_fields
@@ -17,7 +18,7 @@ class QuadraFile:
         return ret
 
     def append(self, line):
-        self.lines.append(line)
+        self.lines.append(deepcopy(line))
 
     def save(self):
         with open(self.filename, 'w') as fout:
@@ -55,6 +56,12 @@ class QuadraLine:
 
         return ''.join(ret)
 
+    def __getitem__(self, key):
+        return self.fields[key]
+
+    def __setitem__(self, key, value):
+        self.fields[key] = value
+
     def __str__(self):
         ret = []
         for k,v in self.fields.items():
@@ -62,7 +69,7 @@ class QuadraLine:
 
         return '\n'.join(ret)
 
-def run():
+if __name__ == '__main__':
     quadra_file = QuadraFile.parse('Fichier qui fonctionnait avant.TXT')
     print(quadra_file.lines[0])
 
@@ -83,6 +90,4 @@ def run():
 
     quadra_file.save()
 
-if __name__ == '__main__':
-    run()
 

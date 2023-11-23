@@ -2,7 +2,7 @@
 entry_fields = [
     ["type", "Type = M", 1, 1, True],
     ["num_compte", "Numero de compte", 2, 8, True],
-    ["code_journal", "Code journal sur 2 caract. (obligatoire meme si renseigne en 111 sur 3)", 10, 2, True],
+    ["code_journal_2", "Code journal sur 2 caract. (obligatoire meme si renseigne en 111 sur 3)", 10, 2, True],
     ["num_folio", "Numero folio (a initialiser a '000' si pas de folio)", 12, 3, True],
     ["date_ecriture", "Date ecriture (JJMMAA)", 15, 6, True],
     ["code_libelle", "Code libelle", 21, 1, False],
@@ -18,7 +18,7 @@ entry_fields = [
     ["quantite_1", "Quantite 1", 90, 10, False],
     ["num_piece_8", "Numero de piece jusqu'a 8 caracteres", 100, 8, False],
     ["code_devise", "Code devise (FRF ou EUR, Espace = FRF, ou Devise)", 108, 3, False],
-    ["code_journal", "Code journal sur 3 caracteres", 111, 3, True],
+    ["code_journal_3", "Code journal sur 3 caracteres", 111, 3, True],
     ["flag_code_tva", "Flag Code TVA gere dans l'ecriture = O (oui)", 114, 1, False],
     ["code_tva_1", "Code TVA = 0 a 9", 115, 1, False],
     ["methode_calcul", "Methode de calcul TVA = D (Debits) ou E (Encaissements)", 116, 1, False],
