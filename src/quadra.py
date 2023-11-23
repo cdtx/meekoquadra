@@ -2,7 +2,7 @@ import sys, os
 from copy import deepcopy
 from collections import OrderedDict
 
-from quadra_defs import entry_fields
+from .quadra_defs import entry_fields
 
 class QuadraFile:
     def __init__(self, filename):

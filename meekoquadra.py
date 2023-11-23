@@ -5,8 +5,8 @@ import argparse
 from datetime import datetime
 
 
-from quadra import QuadraFile, QuadraLine
-from meeko import MeekoFile
+from src.quadra import QuadraFile, QuadraLine
+from src.meeko import MeekoFile
 
 def run(in_file_name, out_file_name=None):
     logging.info('Input file name : %s', in_file_name)
@@ -15,7 +15,8 @@ def run(in_file_name, out_file_name=None):
     if not out_file_name:
         now = datetime.now()
         out_file_name = '{}_{}.txt'.format(os.path.splitext(in_file_name)[0], now.strftime('%y%m%d_%H%M%S'))
-        logging.info('Output file name : {}'.format(out_file_name))
+
+    logging.info('Output file name : {}'.format(out_file_name))
 
     # Load meeko file
     meeko_file = MeekoFile.parse(in_file_name)
