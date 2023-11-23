@@ -1,6 +1,7 @@
 # -*- coding: Latin-1 -*-
 import sys, os, re
 import logging
+import argparse
 from datetime import datetime
 
 
@@ -8,7 +9,7 @@ from quadra import QuadraFile, QuadraLine
 from meeko import MeekoFile
 
 def run(in_file_name, out_file_name=None):
-    logging.info('Input file name : %s', file_name)
+    logging.info('Input file name : %s', in_file_name)
 
     # Compute the output file name if not forced
     if not out_file_name:
@@ -83,5 +84,12 @@ def run(in_file_name, out_file_name=None):
 if __name__ == '__main__':
     logging.basicConfig(format='%(asctime)s - %(message)s', datefmt='%m/%d/%Y - %H:%M:%S', level=7)
 
-    file_name = 'Excel bis sept à decemrbe 2021.xlsx'
-    run(file_name)
+    parser = argparse.ArgumentParser(description='Convert meeko *.xlsx to quadra *.txt')
+
+    parser.add_argument('--in', type=str, required=True, dest='in_file_name', help='Fichier meeko (*.xlxs)')
+    parser.add_argument('--out', type=str, required=False, dest='out_file_name', help='Fichier quadra (*.txt), optionnel')
+
+    args = parser.parse_args()
+
+    run(**vars(args))
+
